@@ -1,6 +1,6 @@
 # API Courier
 
-A small browser game for learning GET requests, POST requests with JSON bodies, and reading JSON response fields.
+A small browser game with three beginner chapters about requests/responses, JSON basics, and reading structured data. The original GET/POST/JSON prototype remains available as practice.
 
 ## Play
 
@@ -10,7 +10,19 @@ Repository: https://github.com/Pythonidaer/api-gamified-demo
 
 This repository is the working source. Pushes to main run checks and publish dist/ through GitHub Actions. The earlier ChatGPT-hosted Site is a separate snapshot. All assets use relative URLs for the GitHub Pages subdirectory.
 
-Open the published site. Edit the starter JavaScript and select Run delivery. Requests run against a deterministic local API simulator in a disposable Web Worker. Each attempt has a timeout. No API credentials, backend, or model calls are needed. Progress and drafts save to browser localStorage when available.
+Open the published site. Choose a chapter, then answer a question or edit its JSON/JavaScript. Select Check answer or Run request. Requests run against a deterministic local API simulator in a disposable Web Worker. Each attempt has a timeout. No API credentials, backend, or model calls are needed. Progress and drafts save to browser localStorage when available.
+
+## Chapters available now
+
+1. **Requests and responses:** six missions covering client/server roles, API contracts, request URLs, response parts, content-type metadata, and HTTPS.
+2. **JSON basics:** six missions covering quoted keys/strings, numbers, booleans/null, arrays, syntax repair, and a combined manifest.
+3. **Reading structured data:** six missions covering fields, nested objects, array indexes, combined lookups, bracket notation, and null versus missing properties.
+
+All chapters are open. Each mission has a short explanation, task, worked example, graduated hints, solution, and specific answer feedback. Chapter 2 checks JSON directly; Chapter 3 supplies a visible parsed manifest as `data`. `report()` is a game helper, not a JavaScript built-in. Chapter 1 introduces only the small amount of request code needed; later planned chapters expand these topics.
+
+Use the chapter buttons and mission selector to move around. Progress, answers, and drafts use stable mission IDs in browser storage. Original prototype completions and drafts migrate into Original practice on the same origin; GitHub Pages and the earlier ChatGPT Site have separate browser storage. Each mission awards XP once. You can replay freely.
+
+Run `node check-chapters.cjs` and `node check-game.cjs`. The chapter checks cover all 18 solutions, wrong answers, JSON syntax/types, equivalent JavaScript answers, null/missing semantics, and old/new progress restoration. The chapter UI and worker integration still need device review.
 
 ## Original courier assets
 
@@ -20,13 +32,16 @@ The rig has not been imported or verified in Spine Editor. There is no native `.
 
 ## Verification
 
-Run `node check-game.cjs`. JavaScript syntax and rig asset references have been checked. Interactive browser QA was unavailable in this environment. Please verify on mobile Safari and desktop: running all missions, code edits, hint toggle, response details, persistence after reload, and pausing motion.
+Run `node check-game.cjs` and `node check-chapters.cjs`. JavaScript syntax and rig asset references have been checked. Interactive browser QA was unavailable in this environment. Please verify on mobile Safari and desktop: running all missions, code edits, hint toggle, response details, persistence after reload, and pausing motion.
 
 ## Files
 
 - `dist/index.html`: page and instructions
 - `dist/style.css`: responsive layout
-- `dist/game-core.js`: missions, simulation, validation
+- `dist/game-core.js`: preserved prototype missions and API simulation
+- `dist/curriculum.js`: chapter content and semantic answer checks
+- `dist/progress.js`: progress validation and migration
+- `dist/runner.js` and `dist/exercise-worker.js`: isolated exercise execution
 - `dist/app.js`: UI, worker execution, independent animation renderer
 - `make_assets.py`: original courier artwork and rig authoring
 - `check-game.cjs`: focused mission checks
@@ -34,7 +49,7 @@ Run `node check-game.cjs`. JavaScript syntax and rig asset references have been 
 
 ## Future improvements
 
-Planning checklist, added 2026-10-17. These are proposed tasks, not implemented features.
+Planning checklist, added 2026-10-17. Chapters 1–3 are now implemented as an initial 18-mission learning sequence; remaining curriculum and polish tasks below are future work unless explicitly marked complete.
 
 ### Adaptations from Flexbox Zombies
 
@@ -56,7 +71,8 @@ References:
 
 These are our proposed extensions, not verified features of Flexbox Zombies.
 
-- [ ] Expand the three prototype missions into the curriculum below, with explicit outcomes and prerequisites for each chapter.
+- [x] Implement Chapters 1–3 with 18 missions, outcomes, examples, graduated hints, solutions, and chapter selection.
+- [ ] Implement Chapters 4–16 and evaluate prerequisites and learning outcomes across the full curriculum.
 - [ ] Write a small story/content guide: Pip's role, the settlement's goal, recurring characters, terminology, dialogue length, and a chapter-by-chapter plot outline. Keep narrative skippable and task instructions independently understandable.
 - [ ] Use an explain/example/practice/feedback pattern. Start with small edits, move to short original requests, and reuse concepts in later missions.
 - [ ] Add optional review missions and track demonstrated skills separately from lessons visited. Award XP once per achievement rather than repeatedly for replaying the same answer.

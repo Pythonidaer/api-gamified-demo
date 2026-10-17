@@ -39,3 +39,13 @@ Read current main-branch files through GitHub on 2026-10-17. The full baseline v
 Preserve all three missions, starter code, mock API behavior, feedback, response inspection, XP, browser-local drafts and progress, and the original downloadable courier assets. This is a UI refinement, not official Spine runtime integration. Asset and runtime limits in README.md still apply.
 
 Syntax checks and the existing mission logic checks pass. Source scans check for emojis and character-icon substitutes. Browser automation/control-browser is unavailable, so mobile Safari wrapping, sticky blur, dialog focus geometry, and animation appearance remain for device review. Deployment confirms publication only.
+
+
+## Initial Chapters 1–3 — 2026-10-17
+
+- Add six short missions per chapter: requests/responses, JSON basics, and reading structured data. Choice, JSON, and JavaScript exercises match the learning goal rather than requiring full request boilerplate in every task.
+- Keep all three original missions under Original practice, with legacy progress/draft migration on the same browser origin. New progress uses stable chapter/mission IDs; repeat completions do not duplicate XP. All chapters and missions stay available.
+- Keep the existing world, palette, controls, and approved close SVG. Add a normal-flow chapter summary and mission selector. Examples, learning goals, hints, and solutions are disclosures; the Chapter 3 manifest opens by default because it is necessary to solve its tasks.
+- Each chapter has a brief story purpose. JSON/data-only exercises are checked at the outpost; only request exercises animate a round trip, so reading JSON is not misrepresented as a network call.
+- Add progressive hints and optional solutions. Answer checks compare semantic values and types, accept equivalent property access, and ignore JSON property ordering. The current checks verify the result rather than proving the learner derived it without hard-coding.
+- Use static same-origin worker files for exercise execution. Run checks cover correct/incorrect answers, supplied starters, JSON syntax/types, equivalent code, null/missing values, and save migration. Browser automation remains unavailable, so mobile Safari layout, focus, and worker behavior are not visually verified.

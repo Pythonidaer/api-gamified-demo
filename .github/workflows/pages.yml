@@ -26,7 +26,12 @@ jobs:
           node --check dist/app.js
           node --check dist/game-core.js
           node --check dist/icons.js
+          node --check dist/curriculum.js
+          node --check dist/progress.js
+          node --check dist/runner.js
+          node --check dist/exercise-worker.js
           node check-game.cjs
+          node check-chapters.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

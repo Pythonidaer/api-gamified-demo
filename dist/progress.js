@@ -1,0 +1,6 @@
+(function(root){
+const curriculum=typeof module!=='undefined'?require('./curriculum.js'):root.CourierCurriculum;
+const key=m=>m.chapter+':'+m.id;
+function restore(saved,legacy){const keys=curriculum.lessons.map(key);const fallback={current:keys[0],completed:[],drafts:{},choices:{}};if(saved&&typeof saved==='object'){return {current:keys.includes(saved.current)?saved.current:keys[0],completed:[...new Set((Array.isArray(saved.completed)?saved.completed:[]).filter(k=>keys.includes(k)))],drafts:Object.fromEntries(Object.entries(saved.drafts&&typeof saved.drafts==='object'?saved.drafts:{}).filter(([k,v])=>keys.includes(k)&&typeof v==='string')),choices:Object.fromEntries(Object.entries(saved.choices&&typeof saved.choices==='object'?saved.choices:{}).filter(([k,v])=>keys.includes(k)&&Number.isInteger(v)&&v>=0&&v<3))}}if(legacy&&typeof legacy==='object'){fallback.completed=[...new Set((Array.isArray(legacy.completed)?legacy.completed:[]).filter(n=>Number.isInteger(n)&&n>=0&&n<3).map(n=>'practice:legacy-'+n))];for(const [n,v]of Object.entries(legacy.drafts||{})){if(['0','1','2'].includes(n)&&typeof v==='string')fallback.drafts['practice:legacy-'+n]=v}}return fallback}
+const api={key,restore};root.CourierProgress=api;if(typeof module!=='undefined')module.exports=api;
+})(typeof window!=='undefined'?window:globalThis);
