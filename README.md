@@ -30,3 +30,78 @@ Run `node check-game.cjs`. JavaScript syntax and rig asset references have been 
 - `dist/app.js`: UI, worker execution, independent animation renderer
 - `make_assets.py`: original courier artwork and rig authoring
 - `check-game.cjs`: focused mission checks
+
+
+## Future improvements
+
+Planning checklist, added 2026-10-17. These are proposed tasks, not implemented features.
+
+### Adaptations from Flexbox Zombies
+
+References:
+- https://mastery.games/post/flexboxzombies2/ — Spine animation, soundtrack and atmosphere, sound effects, per-target correctness feedback, improved hints/dialogue, and polish.
+- https://flexboxzombies.com/ — twelve concept-led chapters, a continuing story, repeated coding challenges, and a final combined challenge.
+
+- [ ] Verify the courier rig in Spine Editor, refine idle/walk/wait/delivery/celebration animations, and integrate the official runtime after an appropriate license is confirmed.
+- [ ] Add distinct visual reactions for requests, successful responses, rejected requests, and completed deliveries. Keep technical outcomes accurate: a successful data request returns data rather than automatically moving physical stock.
+- [ ] Add optional background music, environmental audio, and delivery/error sound effects, with explicit sound controls and a silent default until user interaction.
+- [ ] Show partial correctness for endpoint, method, headers, body, and response interpretation after running code. Explain which parts worked without treating a specific string match as the only valid solution.
+- [ ] Add graduated hints: concept reminder, relevant example, then an explained solution.
+- [ ] Design a chapter-based story with short dialogue, recurring characters, clear stakes, and a mission reason for each new concept.
+- [ ] Create multiple short coding puzzles per concept, increasing independence and combining earlier skills.
+- [ ] Add a final multi-step delivery challenge that combines the learned concepts.
+- [ ] Polish instructional wording, dialogue, error explanations, transitions, and mobile/keyboard behavior through playtesting.
+
+### Additional API Courier proposals
+
+These are our proposed extensions, not verified features of Flexbox Zombies.
+
+- [ ] Expand the three prototype missions into the curriculum below, with explicit outcomes and prerequisites for each chapter.
+- [ ] Write a small story/content guide: Pip's role, the settlement's goal, recurring characters, terminology, dialogue length, and a chapter-by-chapter plot outline. Keep narrative skippable and task instructions independently understandable.
+- [ ] Use an explain/example/practice/feedback pattern. Start with small edits, move to short original requests, and reuse concepts in later missions.
+- [ ] Add optional review missions and track demonstrated skills separately from lessons visited. Award XP once per achievement rather than repeatedly for replaying the same answer.
+- [ ] Add chapter selection, resume points, and a persistent skill map without punitive streaks or time pressure.
+- [ ] Add an expandable glossary and reference examples beside the editor.
+- [ ] Keep local API simulation as the default; clearly distinguish simulation rules from actual HTTP/browser behavior.
+- [ ] Validate retention with unfamiliar scenarios and an optional real API exercise after the simulated curriculum.
+- [ ] Test mobile Safari, desktop browsers, keyboard navigation, increased text size, reduced motion, sound controls, and save/restore behavior.
+
+### Proposed curriculum: JSON, HTTP, and web API fundamentals
+
+Scope: practical consumption of HTTP APIs using JSON and a small amount of JavaScript. APIs are a broader concept than HTTP endpoints; JSON is one possible data format. This is a proposed beginner curriculum, not a claim of complete coverage of all API styles or HTTP internals.
+
+| Chapter | Technical learning goals | Story application |
+| --- | --- | --- |
+| 1. Requests and responses | APIs as contracts; client/server roles; request method/URL/headers/body; response status/headers/body; HTTP versus HTTPS | Pip learns the depot's delivery rules |
+| 2. JSON values and syntax | Objects, arrays, strings, numbers, booleans, null; quoted keys; invalid syntax | Prepare a valid supply manifest |
+| 3. Reading structured data | Nested objects, arrays, indexes, dot/bracket access; missing versus null values | Find a destination inside a manifest |
+| 4. Encoding and validating data | JSON text versus JS objects; parse/stringify; response.json(); syntax versus required-field/type validation | Encode a parcel label and check its fields |
+| 5. URLs and endpoints | Scheme, host, path, resource IDs, query parameters, URL encoding | Address the correct depot |
+| 6. GET and asynchronous requests | fetch(), promises, await, Response objects, JSON bodies; basic GET safety/idempotency | Request the inventory |
+| 7. Headers and formats | Content-Type, Accept, application/json; response formats and empty bodies | Choose a readable manifest format |
+| 8. Status codes and failures | 2xx/3xx/4xx/5xx; 200/201/204/400/401/403/404/409/429/500; response.ok; HTTP errors versus network/JSON errors; try/catch | Diagnose rejected and interrupted deliveries |
+| 9. Creating with POST | JSON request bodies, required fields, returned IDs, validation errors | Register a delivery |
+| 10. Updating and deleting | PUT/PATCH/DELETE; replacement versus partial update; safe versus idempotent semantics; endpoint-specific contracts | Correct, replace, or cancel an order |
+| 11. Querying collections | Filtering, sorting, pagination, list envelopes; query names follow the API's contract | Find and retrieve the needed supplies |
+| 12. Identity and permissions | Authentication versus authorization; API keys, bearer tokens, cookies at a basic level; 401 versus 403; protect private credentials | Obtain the right depot access |
+| 13. Resilient requests | AbortController/timeouts, rate limits, Retry-After, bounded retry/backoff, duplicate creation risks, idempotency support | Recover from a busy or unavailable depot |
+| 14. Caching and freshness | Cache-Control, fresh/stale data, ETag, conditional requests and 304 | Decide whether a saved inventory is current |
+| 15. Browser boundaries | Origins, CORS/preflight, credentials/cookies, mixed content; no-cors is not a readable-response workaround; CORS is not authorization | Understand why a browser blocks a route |
+| 16. Reading contracts and completing a delivery | Read API docs/sample OpenAPI contracts; required fields, pagination, errors and versioning; combine request, validation, mutation, and verification | Restore the outpost's supply route |
+
+Do not force twelve chapters simply to match the reference. Chapter count follows learning goals. Each chapter should contain several brief, independently resumable missions; chapters can span sessions. Provide the minimal JavaScript scaffolding needed so API practice does not become an unrelated JavaScript course.
+
+Story-writing pattern for every chapter:
+1. A concrete problem at the outpost.
+2. A short explanation of the new concept.
+3. A worked example.
+4. Small code-edit challenges.
+5. A new scenario solved with less help.
+6. Specific feedback, a visible consequence, and a later review opportunity.
+
+Further curriculum references:
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/JSON
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+Later optional expansions: building a server, databases, OAuth implementation, GraphQL, webhooks, WebSockets, streaming, and deeper HTTP protocol/version details. These require their own learning goals and are not assumed prerequisites for this beginner game.
