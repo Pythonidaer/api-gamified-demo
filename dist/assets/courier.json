@@ -1,0 +1,366 @@
+{
+  "skeleton": {
+    "spine": "4.2.43",
+    "images": "./",
+    "width": 120,
+    "height": 160
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "body",
+      "parent": "root",
+      "y": 73
+    },
+    {
+      "name": "leg-back",
+      "parent": "body",
+      "x": -15,
+      "y": -39
+    },
+    {
+      "name": "leg-front",
+      "parent": "body",
+      "x": 14,
+      "y": -39
+    },
+    {
+      "name": "pack",
+      "parent": "body",
+      "x": -36,
+      "y": 4
+    },
+    {
+      "name": "arm-back",
+      "parent": "body",
+      "x": -25,
+      "y": 1
+    },
+    {
+      "name": "head",
+      "parent": "body",
+      "y": 56
+    },
+    {
+      "name": "arm-front",
+      "parent": "body",
+      "x": 25,
+      "y": 1
+    },
+    {
+      "name": "parcel",
+      "parent": "body",
+      "x": 37,
+      "y": -17
+    }
+  ],
+  "slots": [
+    {
+      "name": "leg-back",
+      "bone": "leg-back",
+      "attachment": "leg"
+    },
+    {
+      "name": "leg-front",
+      "bone": "leg-front",
+      "attachment": "leg"
+    },
+    {
+      "name": "pack",
+      "bone": "pack",
+      "attachment": "pack"
+    },
+    {
+      "name": "arm-back",
+      "bone": "arm-back",
+      "attachment": "arm"
+    },
+    {
+      "name": "body",
+      "bone": "body",
+      "attachment": "body"
+    },
+    {
+      "name": "head",
+      "bone": "head",
+      "attachment": "head"
+    },
+    {
+      "name": "arm-front",
+      "bone": "arm-front",
+      "attachment": "arm"
+    },
+    {
+      "name": "parcel",
+      "bone": "parcel",
+      "attachment": "parcel"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "leg-back": {
+          "leg": {
+            "type": "region",
+            "path": "leg",
+            "width": 22,
+            "height": 44,
+            "x": 0,
+            "y": -18
+          }
+        },
+        "leg-front": {
+          "leg": {
+            "type": "region",
+            "path": "leg",
+            "width": 22,
+            "height": 44,
+            "x": 0,
+            "y": -18
+          }
+        },
+        "pack": {
+          "pack": {
+            "type": "region",
+            "path": "pack",
+            "width": 27,
+            "height": 50,
+            "x": 0,
+            "y": 0
+          }
+        },
+        "arm-back": {
+          "arm": {
+            "type": "region",
+            "path": "arm",
+            "width": 20,
+            "height": 44,
+            "x": 0,
+            "y": -17
+          }
+        },
+        "body": {
+          "body": {
+            "type": "region",
+            "path": "body",
+            "width": 64,
+            "height": 70,
+            "x": 0,
+            "y": 0
+          }
+        },
+        "head": {
+          "head": {
+            "type": "region",
+            "path": "head",
+            "width": 72,
+            "height": 54,
+            "x": 0,
+            "y": 0
+          }
+        },
+        "arm-front": {
+          "arm": {
+            "type": "region",
+            "path": "arm",
+            "width": 20,
+            "height": 44,
+            "x": 0,
+            "y": -17
+          }
+        },
+        "parcel": {
+          "parcel": {
+            "type": "region",
+            "path": "parcel",
+            "width": 30,
+            "height": 27,
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "idle": {
+      "bones": {
+        "body": {
+          "translate": [
+            {
+              "time": 0,
+              "y": 0
+            },
+            {
+              "time": 0.8,
+              "y": 2
+            },
+            {
+              "time": 1.6,
+              "y": 0
+            }
+          ]
+        }
+      }
+    },
+    "walk": {
+      "bones": {
+        "leg-back": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": -27
+            },
+            {
+              "time": 0.25,
+              "value": 27
+            },
+            {
+              "time": 0.5,
+              "value": -27
+            }
+          ]
+        },
+        "leg-front": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 27
+            },
+            {
+              "time": 0.25,
+              "value": -27
+            },
+            {
+              "time": 0.5,
+              "value": 27
+            }
+          ]
+        },
+        "arm-back": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 19
+            },
+            {
+              "time": 0.25,
+              "value": -19
+            },
+            {
+              "time": 0.5,
+              "value": 19
+            }
+          ]
+        },
+        "arm-front": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": -19
+            },
+            {
+              "time": 0.25,
+              "value": 19
+            },
+            {
+              "time": 0.5,
+              "value": -19
+            }
+          ]
+        },
+        "body": {
+          "translate": [
+            {
+              "time": 0,
+              "y": 0
+            },
+            {
+              "time": 0.125,
+              "y": 3
+            },
+            {
+              "time": 0.25,
+              "y": 0
+            },
+            {
+              "time": 0.375,
+              "y": 3
+            },
+            {
+              "time": 0.5,
+              "y": 0
+            }
+          ]
+        }
+      }
+    },
+    "celebrate": {
+      "bones": {
+        "arm-front": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0
+            },
+            {
+              "time": 0.3,
+              "value": -140
+            },
+            {
+              "time": 0.7,
+              "value": -110
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        },
+        "body": {
+          "translate": [
+            {
+              "time": 0,
+              "y": 0
+            },
+            {
+              "time": 0.3,
+              "y": 12
+            },
+            {
+              "time": 0.6,
+              "y": 0
+            },
+            {
+              "time": 1,
+              "y": 0
+            }
+          ]
+        }
+      }
+    },
+    "wait": {
+      "bones": {
+        "head": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": -6
+            },
+            {
+              "time": 0.7,
+              "value": 6
+            },
+            {
+              "time": 1.4,
+              "value": -6
+            }
+          ]
+        }
+      }
+    }
+  }
+}
